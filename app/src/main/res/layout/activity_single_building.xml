@@ -1,0 +1,251 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/fragment_map_base"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/search_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_container"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/switch_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/zoom"
+            style="@style/SwitchButtonMD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            app:kswTextOff="@string/zoom"
+            app:kswTextOn="@string/zoom"/>
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/move"
+            style="@style/SwitchButtonMD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            app:kswTextOff="@string/move"
+            app:kswTextOn="@string/move"/>
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/skew"
+            style="@style/SwitchButtonMD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            app:kswTextOff="@string/skew"
+            app:kswTextOn="@string/skew"/>
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/rotate"
+            style="@style/SwitchButtonMD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            app:kswTextOff="@string/rotate"
+            app:kswTextOn="@string/rotate"/>
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/click"
+            style="@style/SwitchButtonMD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            app:kswTextOff="@string/click"
+            app:kswTextOn="@string/click"/>
+    </LinearLayout>
+
+    <com.palmap.widget.Scale
+        android:id="@+id/architect"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        app:LineWidth="6"/>
+
+    <LinearLayout
+        android:id="@+id/top_text_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:paddingLeft="32dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/screen_coo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            tools:text="当前显示区域为:"/>
+
+        <TextView
+            android:id="@+id/al_la_coo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            tools:text="当前显示区域为:sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf"/>
+
+        <TextView
+            android:id="@+id/plan_coo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            tools:text="当前显示区域为:"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/top_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:visibility="gone"
+        tools:text="当前显示区域为:"/>
+
+    <com.palmap.widget.Compass
+        android:id="@+id/compass"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="48dp"
+        android:layout_marginRight="21dp"/>
+
+    <LinearLayout
+        android:id="@+id/locate_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/switch_container"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="45dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_device_network_wifi"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/bluetooth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_device_bluetooth"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/map_function_radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <RadioButton
+            android:id="@+id/config_origin"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:checked="true"
+            android:text="@string/config_one"/>
+
+        <RadioButton
+            android:id="@+id/config_new"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="@string/config_two"/>
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/geo_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical"
+        android:paddingLeft="32dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <Button
+            android:id="@+id/linestring"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="折线"/>
+
+        <Button
+            android:id="@+id/rect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="多边形"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

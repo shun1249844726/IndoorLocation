@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.lexinsmart.xushun.indoorlocation"
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDir 'src/main/java'
+            }
+        }
+    }
+}
+ext {
+    switchButtonVersion = '1.4.4'
+    bundlerVersion = '0.1.1'
+
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile(name:'widget', ext:'aar')
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
+    testCompile 'junit:junit:4.12'
+    compile files('libs/nagrand-jar-with-dependencies.jar')
+
+
+    compile 'com.lovedise:permissiongen:0.0.6'
+
+    compile 'com.jakewharton:butterknife:8.6.0'
+    apt 'com.jakewharton:butterknife-compiler:8.6.0'
+
+
+    compile "com.kyleduo.switchbutton:library:$switchButtonVersion"
+
+
+    compile "in.workarounds.bundler:bundler-annotations:$bundlerVersion"
+    apt "in.workarounds.bundler:bundler-compiler:$bundlerVersion"
+
+
+}
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
